@@ -4,16 +4,14 @@
   --green-color: #71c575;
   --white-color: #e8e8e8;
   --grey-color: #4d4d4d;
+  --grey-color-light: #B2B2B2;
+  --black-color: #000000;
 }
 * {
   box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
   background-color: var(--white-color);
   font-family: "PT Sans", serif;
@@ -27,44 +25,80 @@ h1 {
   color: var(--green-color);
 }
 
+.block1, .block2 {
+  width: 100%;
+  height: 100vh;
+  padding: 36px;
+}
+
 .block1 {
   background-image: url("./assets/frame.png"), url("./assets/bg.jpg");
   background-size: cover;
   background-position: center center;
-  width: fill-available;
-  width: -webkit-fill-available;
-  height: fill-available;
-  height: -webkit-fill-available;
-  padding: 36px;
+}
+
+.block1 .container {
+  border: solid 1px var(--grey-color);
+}
+
+.block2 .container {
+  border: solid 1px var(--grey-color-light);
 }
 
 .container {
   width: 100%;
   height: 100%;
-  border: solid 1px var(--grey-color);
   border-radius: 10px;
 }
 
-.container-right {
-  width: 99px; /* Ширина внутрішнього правого блоку */
-
-  border: solid 1px var(--gray-color); /* Колір рамки */
-  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий білий фон */
-  border-bottom-left-radius: 10px; /* Закруглення кутів */
+.block1 .container-left {
   border-right: solid 1px var(--grey-color); /* Колір рамки */
-  border-top: solid 1px var(--grey-color); /* Колір рамки */
+  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий білий фон */
+  border: solid 1px var(--grey-color); /* Колір рамки */
 }
+
+.block2 .container-left {
+  border-right: solid 1px var(--grey-color-light); /* Колір рамки */
+  background-color: var(--white-color); /* Напівпрозорий білий фон */
+  border: solid 1px var(--grey-color-light); /* Колір рамки */
+}
+
+.container-left {
+  width: 99px; /* Ширина внутрішнього правого блоку */
+  border-bottom-left-radius: 10px; /* Закруглення кутів */
+  border-top-color: transparent
+}
+
+.block1 .container-top {
+  border-bottom: solid 1px var(--grey-color); /* Колір рамки */
+  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий білий фон */
+  color: var(--white-color);
+}
+
+.block2 .container-top {
+  border-bottom: solid 1px var(--grey-color-light); /* Колір рамки */
+  background-color: var(--white-color); /* Напівпрозорий білий фон */
+  color: var(--black-color)
+}
+
 .container-top {
   display: grid;
   grid-template-columns: 15% 1fr auto;
-  color: var(--white-color);
   padding-left: 31px;
   height: 8%;
-  border-bottom: solid 1px var(--grey-color); /* Колір рамки */
-  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий білий фон */
+
   border-top-left-radius: 10px; /* Закруглення кутів */
   border-top-right-radius: 10px; /* Закруглення кутів */
 }
+
+.block1 .left-block svg line {
+  stroke: var(--white-color);
+}
+
+.block2 .left-block svg line {
+  stroke: var(--black-color);
+}
+
 .left-block {
   height: 100%;
   /* width: 19.5%; */
@@ -216,8 +250,15 @@ h1 {
   border-color: #cacaca;
 }
 
+.block1 .letter-g {
+  background-color: var(--white-color); /* білий фон */
+}
+
+.block2 .letter-g {
+  background-color: var(--black-color);
+}
+
 .letter-g {
-  background-color: white; /* білий фон */
   clip-path: polygon(
     4.29% 0%,
     0% 13.231%,
@@ -243,7 +284,7 @@ h1 {
 }
 
 @media (max-width: 1124px) {
-  .container-right {
+  .container-left {
     width: 80px;
   }
   .left-block .letter-g {
@@ -285,7 +326,7 @@ h1 {
     width: 100px;
   }
 
-  .container-right {
+  .container-left {
     width: 60px;
   }
 
